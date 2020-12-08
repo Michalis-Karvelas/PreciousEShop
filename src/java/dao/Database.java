@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dbutils;
+package dao;
 
 //import cmdutils.Command;
 import java.sql.Connection;
@@ -42,9 +42,9 @@ public class Database {
         username = "root";
         password = "CB12mixalis.";
         database = "eshop1";
-        server = "jdbc:mysql://localhost:3306/" + database;// + "?useSSL=false&serverTimezone=Europe/Athens";
+        server = "jdbc:mysql://localhost:3306/" + database+ "?useSSL=false&serverTimezone=Europe/Athens";
         try {
-            Class.forName("com.mysql.sj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(server, username, password);
             System.out.println("Connected!");
         } catch (SQLException | ClassNotFoundException ex) {
