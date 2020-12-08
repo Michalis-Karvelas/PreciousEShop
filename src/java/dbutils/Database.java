@@ -40,13 +40,14 @@ public class Database {
     public Database() {
         
         username = "root";
-        password = "CB12FT_Java!";
+        password = "CB12mixalis.";
         database = "eshop1";
-        server = "jdbc:mysql://localhost:3306/" + database + "?useSSL=false&serverTimezone=Europe/Athens";
+        server = "jdbc:mysql://localhost:3306/" + database;// + "?useSSL=false&serverTimezone=Europe/Athens";
         try {
+            Class.forName("com.mysql.sj.jdbc.Driver");
             con = DriverManager.getConnection(server, username, password);
             System.out.println("Connected!");
-        } catch (SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Connection is not established");
         }
